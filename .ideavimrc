@@ -1,0 +1,66 @@
+"" Set Space as leader key
+let mapleader = " "
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+
+" Surround plugin
+set surround
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" Can be typed even faster than jj, and if you are already in
+"    normal mode, you (usually) don't accidentally move:
+imap jk <Esc>
+imap kj <Esc>
+
+" Add semicolon to current line
+map ;; <Esc>A;<Esc>;
+
+" Add whitespace under current line
+map <Enter><Enter> o <Esc> k$
+
+"" Jump between tabs with H/L
+nmap H <action>(PreviousTab)
+nmap L <action>(NextTab)
+
+" Save file
+nnoremap <Leader>w :w<CR>
+
+" Close file
+nnoremap <Leader>q :q<CR>
+
+" Open file search
+nnoremap <Leader>f :action SelectInProjectView<CR>
+
+" Go to implementation
+nnoremap go :action GotoImplementation<CR>
+
+"" Move lines with Alt+j or Alt+k
+nnoremap <A-k> :action MoveLineUp<CR>
+nnoremap <A-j> :action MoveLineDown<CR>
+vnoremap <A-k> :action MoveLineUp<CR>
+vnoremap <A-j> :action MoveLineDown<CR>
+
+"" Copy line upwards / downwards
+nnoremap <A-S-k> yypk
+nnoremap <A-S-j> yyp
+
+" Open terminal
+nnoremap <Leader>` :action ActivateTerminalToolWindow<CR>
+
+" Edit .ideavimrc
+nnoremap \e :e ~\.ideavimrc<CR>
+
+" Reload .ideavimrc
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+
+
+"" -- IDE actions cheatsheet -- https://jb.gg/abva4t
+" Find more examples here: https://jb.gg/share-ideavimrc
